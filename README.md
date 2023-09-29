@@ -2,12 +2,12 @@
 
 Play the classic Tic-Tac-Toe game against a friend right in your browser! No download required.
 
-👉 Play Now 👈
+👉 [Play Now](https://tradexy.github.io/tictactoe/) 👈
 
 
 🚀 Quick Start. Get up and running in less than 5 minutes! You can clone the repository using either gh cli or git.
 
-Using GitHub CLI: first install GitHub CLI, then run:
+Using GitHub CLI: first install [GitHub CLI](https://cli.github.com/) then run:
 
 gh repo clone https://github.com/tradexy/tictactoe.git
 
@@ -33,5 +33,10 @@ JavaScript
 You can reset the game at any point by clicking the "Reset" button below the game board.
 
 📜 License
-This project is open source and available under the MIT License.
+This project is open source and available under the [MIT License](https://opensource.org/licenses/MIT).
+
+
+### GitHub CLI OS Compatibility
+The GitHub CLI is available for macOS, Windows, and Linux. You can download the appropriate version for your operating system from the [GitHub CLI website](https://cli.github.com/).
+
 
