@@ -1,58 +1,40 @@
-let board = [
-    ['', '', ''],
-    ['', '', ''],
-    ['', '', '']
-];
+let currentPlayer = '❌';
+const board = Array.from(Array(9).keys());
 
-let currentPlayer = 'X';
+document.querySelectorAll('.box').forEach(box => box.addEventListener('click', boxClicked));
+document.getElementById('reset').addEventListener('click', resetGame);
 
-document.addEventListener('DOMContentLoaded', () => {
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach((cell, index) => {
-        cell.addEventListener('click', function() {
-            const row = Math.floor(index / 3);
-            const col = index % 3;
-
-            if (board[row][col] === '') {
-                board[row][col] = currentPlayer;
-                this.querySelector('.' + currentPlayer.toLowerCase()).style.display = 'block';
-
-                if (checkWin(row, col)) {
-                    alert(`${currentPlayer} wins!`);
-                    resetBoard(cells);
-                } else if (board.flat().every(cell => cell !== '')) {
-                    alert("It's a draw!");
-                    resetBoard(cells);
-                }
-
-                currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-            }
-        });
-    });
-
-    document.querySelector('#reset-button').addEventListener('click', () => {
-        resetBoard(cells);
-    });
-});
-
-function checkWin(row, col) {
-    if (board[row].every(cell => cell === currentPlayer)) return true;
-    if (board.map(r => r[col]).every(cell => cell === currentPlayer)) return true;
-    if (board[0][0] === currentPlayer && board[1][1] === currentPlayer && board[2][2] === currentPlayer) return true;
-    if (board[0][2] === currentPlayer && board[1][1] === currentPlayer && board[2][0] === currentPlayer) return true;
-
-    return false;
+function boxClicked(e) {
+  const id = e.target.id;
+  if (!board[id]) {
+    board[id] = currentPlayer;
+    document.getElementById(id).innerText = currentPlayer;
+    if (checkWin()) {
+      alert(`${currentPlayer} wins!`);
+      resetGame();
+    } else if (board.every(cell => cell)) {
+      alert('Draw!');
+      resetGame();
+    }
+    currentPlayer = currentPlayer === '❌' ? '⭕' : '❌';
+  }
 }
 
-function resetBoard(cells) {
-    board = [
-        ['', '', ''],
-        ['', '', ''],
-        ['', '', '']
-    ];
-    currentPlayer = 'X';
-    cells.forEach(cell => {
-        cell.querySelector('.x').style.display = 'none';
-        cell.querySelector('.o').style.display = 'none';
-    });
+function checkWin() {
+  const winCombination = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6]
+  ];
+  return winCombination.some(combination => combination.every(index => board[index] === currentPlayer));
+}
+
+function resetGame() {
+  board.fill(null);
+  document.querySelectorAll('.box').forEach(box => box.innerText = '');
 }

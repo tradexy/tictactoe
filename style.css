@@ -1,39 +1,23 @@
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-}
-
-#game-board {
-    width: 75%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-}
-
-.cell {
-    width: 100%;
-    padding-bottom: 33.33%; /* Makes the cell rectangular */
-    position: relative;
-    border: 1px solid black;
-}
-
-.x, .o {
-    display: none;
+#container {
+    width: 300px;
+    height: 300px;
+    margin: auto;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-}
-
-.x line, .o circle {
-    stroke: black;
-    stroke-width: 8;
-}
-
-#reset-button {
-    margin-top: 20px;
-}
+    top: 20%; left: 20%; bottom: 20%; right: 20%;
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+  }
+  
+  .box {
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 32px;
+  }
+  
+  #reset {
+    grid-column: 1 / span 3;
+  }
+  

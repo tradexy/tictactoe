@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Tic-Tac-Toe</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <div id="game-board">
-        <!-- Repeat this block 9 times -->
-        <div class="cell">
-            <svg class="x" viewBox="0 0 100 100">
-                <line x1="10" y1="10" x2="90" y2="90"></line>
-                <line x1="90" y1="10" x2="10" y2="90"></line>
-            </svg>
-            <svg class="o" viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40"></circle>
-            </svg>
-        </div>
-        <!-- ... -->
-    </div>
-    <button id="reset-button">Reset</button>
-    <script src="script.js"></script>
+  <div id="container">
+    <div class="box" id="0"></div>
+    <div class="box" id="1"></div>
+    <div class="box" id="2"></div>
+    <div class="box" id="3"></div>
+    <div class="box" id="4"></div>
+    <div class="box" id="5"></div>
+    <div class="box" id="6"></div>
+    <div class="box" id="7"></div>
+    <div class="box" id="8"></div>
+    <button id="reset">Reset</button>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
