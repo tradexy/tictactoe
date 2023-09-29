@@ -20,25 +20,15 @@
 
 /* cell styles */
 .cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding-top: 100%; /* 1:1 Aspect Ratio */
     position: relative;
     border: 1px solid black;
-    text-align: center;
     font-size: 5vw;
-}
-
-/* Inner element to hold content */
-.cell::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    overflow: hidden;  /* Prevents cell from resizing */
 }
 
 /* Reset button styles */
