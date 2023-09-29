@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (board[row][col] === '') {
                 board[row][col] = currentPlayer;
-                this.textContent = currentPlayer;
+                this.querySelector('.' + currentPlayer.toLowerCase()).style.display = 'block';
 
                 if (checkWin(row, col)) {
                     alert(`${currentPlayer} wins!`);
@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
 function checkWin(row, col) {
     if (board[row].every(cell => cell === currentPlayer)) return true;
     if (board.map(r => r[col]).every(cell => cell === currentPlayer)) return true;
@@ -52,5 +51,8 @@ function resetBoard(cells) {
         ['', '', '']
     ];
     currentPlayer = 'X';
-    cells.forEach(cell => cell.textContent = '');
+    cells.forEach(cell => {
+        cell.querySelector('.x').style.display = 'none';
+        cell.querySelector('.o').style.display = 'none';
+    });
 }
