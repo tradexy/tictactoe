@@ -13,7 +13,7 @@
     width: 50vw;
     height: 50vw;
     max-width: 100%;
-    max-height: calc(100vh - 40px); /* 40px for the reset button and some margin */
+    max-height: calc(100vh - 40px);
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -24,17 +24,23 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding-top: 100%; /* 1:1 Aspect Ratio */
+    height: 100%;
     position: relative;
     border: 1px solid black;
     font-size: 5vw;
-    overflow: hidden;  /* Prevents cell from resizing */
+}
+
+/* inner cell styles for 1:1 aspect ratio */
+.inner-cell {
+    width: 100%;
+    padding-top: 100%;
+    position: relative;
 }
 
 /* Reset button styles */
 #reset-button {
-    margin-top: 2vw;  /* Use viewport width for responsive spacing */
+    margin-top: 2vw;
     font-size: 1.5rem;
-    z-index: 1;  /* Ensure it stays above the game board */
-    position: relative;  /* Relative to the container */
+    z-index: 1;
+    position: relative;
 }

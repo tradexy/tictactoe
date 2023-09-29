@@ -7,8 +7,8 @@ let board = [
 let currentPlayer = 'X';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const cells = document.querySelectorAll('.cell');
-    cells.forEach((cell, index) => {
+    const innerCells = document.querySelectorAll('.inner-cell');
+    innerCells.forEach((cell, index) => {
         cell.addEventListener('click', function() {
             const row = Math.floor(index / 3);
             const col = index % 3;
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (checkWin(row, col)) {
                     alert(`${currentPlayer} wins!`);
-                    resetBoard(cells);
+                    resetBoard(innerCells);
                 } else if (board.flat().every(cell => cell !== '')) {
                     alert("It's a draw!");
-                    resetBoard(cells);
+                    resetBoard(innerCells);
                 }
 
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
@@ -31,16 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('#reset-button').addEventListener('click', () => {
-        resetBoard(cells);
+        resetBoard(innerCells);
     });
 });
 
 function checkWin(row, col) {
-    // Check row
     if (board[row].every(cell => cell === currentPlayer)) return true;
-    // Check column
     if (board.map(r => r[col]).every(cell => cell === currentPlayer)) return true;
-    // Check diagonals
     if (board[0][0] === currentPlayer && board[1][1] === currentPlayer && board[2][2] === currentPlayer) return true;
     if (board[0][2] === currentPlayer && board[1][1] === currentPlayer && board[2][0] === currentPlayer) return true;
 
