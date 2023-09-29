@@ -1,4 +1,4 @@
-/* Add container styles */
+/* container styles */
 #container {
     display: flex;
     flex-direction: column;
@@ -8,7 +8,7 @@
     margin: 0 auto;
 }
 
-/* Update game board styles */
+/* game board styles */
 #game-board {
     width: 50vw;
     height: 50vw;
@@ -18,7 +18,7 @@
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* Update cell styles */
+/* cell styles */
 .cell {
     width: 100%;
     padding-top: 100%; /* 1:1 Aspect Ratio */
@@ -43,6 +43,8 @@
 
 /* Reset button styles */
 #reset-button {
-    margin-top: 20px;
+    margin-top: 2vw;  /* Use viewport width for responsive spacing */
     font-size: 1.5rem;
+    z-index: 1;  /* Ensure it stays above the game board */
+    position: relative;  /* Relative to the container */
 }
