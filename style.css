@@ -1,46 +1,28 @@
-/* container styles */
-#container {
+body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
-    margin: 0 auto;
+    height: 100vh;
+    margin: 0;
 }
 
-/* game board styles */
 #game-board {
-    width: 50vw;
-    height: 50vw;
-    max-width: 100%;
-    max-height: calc(100vh - 40px);
+    width: 75%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-/* cell styles */
 .cell {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 100%;
-    height: 100%;
+    padding-bottom: 33.33%; /* Makes the cell rectangular */
     position: relative;
     border: 1px solid black;
+    text-align: center;
+    vertical-align: middle;
     font-size: 5vw;
 }
 
-/* inner cell styles for 1:1 aspect ratio */
-.inner-cell {
-    width: 100%;
-    padding-top: 100%;
-    position: relative;
-}
-
-/* Reset button styles */
 #reset-button {
-    margin-top: 2vw;
-    font-size: 1.5rem;
-    z-index: 1;
-    position: relative;
+    margin-top: 20px;
 }
