@@ -1,19 +1,48 @@
-#game-board {
-    width: 300px;
-    height: 300px;
-    display: grid;
-    grid-template-columns: 100px 100px 100px;
+/* Add container styles */
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
 }
 
+/* Update game board styles */
+#game-board {
+    width: 50vw;
+    height: 50vw;
+    max-width: 100%;
+    max-height: calc(100vh - 40px); /* 40px for the reset button and some margin */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+/* Update cell styles */
 .cell {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative;
     border: 1px solid black;
     text-align: center;
-    vertical-align: middle;
-    font-size: 32px;
+    font-size: 5vw;
 }
 
+/* Inner element to hold content */
+.cell::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Reset button styles */
 #reset-button {
     margin-top: 20px;
+    font-size: 1.5rem;
 }
