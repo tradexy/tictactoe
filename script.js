@@ -7,8 +7,8 @@ let board = [
 let currentPlayer = 'X';
 
 document.addEventListener('DOMContentLoaded', () => {
-    const innerCells = document.querySelectorAll('.inner-cell');
-    innerCells.forEach((cell, index) => {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach((cell, index) => {
         cell.addEventListener('click', function() {
             const row = Math.floor(index / 3);
             const col = index % 3;
@@ -19,10 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (checkWin(row, col)) {
                     alert(`${currentPlayer} wins!`);
-                    resetBoard(innerCells);
+                    resetBoard(cells);
                 } else if (board.flat().every(cell => cell !== '')) {
                     alert("It's a draw!");
-                    resetBoard(innerCells);
+                    resetBoard(cells);
                 }
 
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
@@ -31,9 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     document.querySelector('#reset-button').addEventListener('click', () => {
-        resetBoard(innerCells);
+        resetBoard(cells);
     });
 });
+
 
 function checkWin(row, col) {
     if (board[row].every(cell => cell === currentPlayer)) return true;
